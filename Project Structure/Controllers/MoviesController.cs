@@ -1,15 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Project_Structure.Models;
 
 namespace Project_Structure.Controllers
 {
     public class MoviesController:Controller
     {
-        private readonly IConfiguration _configuration;
-        public MoviesController(IConfiguration configuration) // ASK CLR for Creating Object from Class Implementing the Interface "IConfiguration
-        {
-            _configuration = configuration;
-        }
+        [FromServices]
+        public IConfiguration Configuration { get; }
 
+        //public MoviesController(IConfiguration configuration)
+        //{
+           
+        //    Configuration = configuration;
+        //}
+
+
+        #region set Data from appSetting
+        //private readonly IConfiguration _configuration;
+        //public MoviesController(IConfiguration configuration) // ASK CLR for Creating Object from Class Implementing the Interface "IConfiguration
+        //{
+        //    _configuration = configuration;
+        //} 
+        #endregion
+
+        #region Route
         //Action: Public Non-Static Object Member Method inside the Controller
         [ActionName("Index")]
         [HttpGet] // Get: baseUrl/Movies/GetMovie/{id}?name=avatar
@@ -57,7 +71,11 @@ namespace Project_Structure.Controllers
         //public string GetMovie(int id)
         //{
         //    return $"Movie With Id: {id}";
-        //}
+        //} 
+        #endregion
+
+
+
 
 
 
@@ -120,6 +138,46 @@ namespace Project_Structure.Controllers
         //} 
         #endregion
 
+
+        //Model Value Providers
+        //1. Form-Data => Input
+        //2. Route Data => pass as Segment : baseUrl/Movies/GetMovie/10
+        //3.  Query String => Query Param : baseUrl/Movies/GetMovie?id=10
+        //4. Request Header => Header
+        //5. Request Body  =>         public IActionResult GetMovie(/*[FromHeader]*/int id, [FromBody] Movie movie)
+        //6. From Service
+
+
+        [HttpGet] //GET: baseUrl/Movies/GetMovie/10
+        public IActionResult GetMovie(/*[FromHeader]*/int id, [FromBody] Movie movie)
+        {
+            if (id == 0)
+                // return new BadRequestResult();
+                return BadRequest();
+
+
+            if (id == 100)
+                //return new NotFoundResult();
+                return NotFound();
+            return Content($"<h1>Movie with Id: {id}<h1>", "text/html");
+
+        }
+
+        [HttpGet]
+        public IActionResult CreateMovie([FromServices] IConfiguration configuration)
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult CreateMovie(Movie movie)
+        {
+            //Create Movie
+            return Ok(movie);
+
+        }
+        
 
 
     }
