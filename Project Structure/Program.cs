@@ -38,10 +38,11 @@ namespace Project_Structure
             });
             app.MapControllerRoute(
                   name: "default",
-                  // pattern /*UrlPath*/:"Hamada/{controller}/{action}/{id?}"// static Segment
-                  //pattern /*UrlPath*/: "Hamada/XXX{controller}/{action}/{id?}"// Mixed Segment
-                  // pattern /* UrlPath*/: "{controller =Movies}/{action = GetMovie}/{id?}"// constructor + action + default
-                  pattern /* UrlPath*/: "{controller}/{action}/{id:int?}"//  constructor + action + default + constraints
+                  pattern /* UrlPath*/: "{controller=Home}/{action=Index}/{id:int?}"//  constructor + action + default + constraints
+
+              // pattern /*UrlPath*/:"Hamada/{controller}/{action}/{id?}"// static Segment
+              //pattern /*UrlPath*/: "Hamada/XXX{controller}/{action}/{id?}"// Mixed Segment
+              // pattern /* UrlPath*/: "{controller =Movies}/{action = GetMovie}/{id?}"// constructor + action + default
 
               );
 
