@@ -26,16 +26,11 @@ namespace Project_Structure
                 app.UseStatusCodePagesWithReExecute("/Home/Error");
             }
             app.UseRouting();
-
-
-            app.MapGet("/", () => "Hello World!");
-
-
-
-            app.MapGet("/Hamada", async (context) =>
+            app.MapGet("/", async context =>
             {
-                await context.Response.WriteAsync("Hello Hamada!");
+                await context.Response.WriteAsync("Hello World!");
             });
+
             app.MapControllerRoute(
                   name: "default",
                   pattern /* UrlPath*/: "{controller=Home}/{action=Index}/{id:int?}"//  constructor + action + default + constraints
