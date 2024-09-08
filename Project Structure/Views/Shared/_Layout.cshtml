@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 
@@ -16,13 +17,21 @@
     <header class="mt-5">
         <center>
             <nav>
-                <a href="/Home/Index" class="btn btn-primary ">Home</a>
-                <a href="/Home/AboutUs" class="btn btn-warning">About</a>
-                <a href="/Home/Privacy" class="btn btn-success">Privacy</a>
-                <a href="/Home/ContactUs" class="btn btn-light">Contact Us</a>
 
-                <a href="/Accounts/SignIn" class="btn btn-info">Sign In</a>
-                <a href="/Accounts/SignUp" class="btn btn-danger">Sign Up</a>
+               @* 2- HTML Helpers *@
+               @* @Html.ActionLink("Home","Index","Home", null, new {@class="btn btn-primary"}) *@
+               @* @Html.BeginForm() *@
+               @* @Html.CheckBox() *@
+               @* @Html.TextBox() *@
+
+               <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
+
+                <a asp-controller="Home" asp-action="AboutUs"  class="btn btn-warning">About</a>
+                <a asp-controller="Home" asp-action="Privacy"  class="btn btn-success">Privacy</a>
+                <a asp-controller="Home" asp-action="ContactUs"  class="btn btn-light">Contact Us</a>
+
+                <a asp-controller ="Accounts" asp-action="Login"  class="btn btn-info">Login</a>
+                <a asp-controller="Accounts" asp-action="Register"  class="btn btn-danger">Register</a>
 
 
             </nav>
