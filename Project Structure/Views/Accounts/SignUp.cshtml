@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Sign Up";
+    Layout = "_AuthLayout";
+}
+
+
+<section>
+    <h1 class="text-center mb-3">
+        Welcome to Sign Up Page
+    </h1>
+    <form action="/Accounts/SignUp" method="post">
+        <div class="form-group">
+            <label for="fName" class="form-label">First Name</label>
+            <input type="text" name="firstName"  id="fName" />
+
+        </div>
+        <div class="form-group">
+            <label for="lName" class="form-label">Last Name</label>
+            <input type="text" name="lastName" id="lName" />
+
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control-plaintext" id="staticEmail">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword">
+            </div>
+        </div>
+        <input type="submit" name="name" value="Sign Up" class="btn btn-success ms-auto d-block" />
+
+    </form>
+
+</section>
+
+
