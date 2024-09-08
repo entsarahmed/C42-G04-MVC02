@@ -26,6 +26,8 @@ namespace Project_Structure
                 app.UseStatusCodePagesWithReExecute("/Home/Error");
             }
             app.UseRouting();
+            app.UseStaticFiles();
+
             app.MapGet("/", async context =>
             {
                 await context.Response.WriteAsync("Hello World!");
